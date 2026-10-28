@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Dashboard</h2>
+<div class="stats">
+  <div class="card stat"><span>Total products</span><strong>{{ total_products }}</strong></div>
+  <div class="card stat"><span>Total units in stock</span><strong>{{ total_units }}</strong></div>
+</div>
+
+<div class="card">
+  <h3>Low stock items</h3>
+  {% if low_stock %}
+  <table>
+    <tr><th>Name</th><th>SKU</th><th>Quantity</th><th>Threshold</th></tr>
+    {% for p in low_stock %}
+    <tr>
+      <td>{{ p.name }}</td><td>{{ p.sku }}</td>
+      <td>{{ p.quantity }}</td><td>{{ p.effective_threshold }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+  {% else %}
+    <p>All products are well stocked.</p>
+  {% endif %}
+</div>
+{% endblock %}
