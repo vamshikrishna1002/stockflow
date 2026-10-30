@@ -22,3 +22,4 @@ media/
 .idea/
 .DS_Store
 Thumbs.db
+*.sql
